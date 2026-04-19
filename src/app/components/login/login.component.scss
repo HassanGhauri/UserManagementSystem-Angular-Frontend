@@ -1,0 +1,173 @@
+.page-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+
+  background: radial-gradient(circle at top, #1f2937 0%, #0b0f19 60%, #05070d 100%);
+}
+
+/* Title */
+.page-title {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  p {
+    color: #9ca3af;
+    margin-top: 0.3rem;
+  }
+}
+
+
+:host ::ng-deep .login-card {
+  width: 100%;
+  max-width: 520px;
+
+  border-radius: 20px;
+
+  padding: 2.5rem 2.2rem;
+
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Card header */
+.card-header {
+  text-align: center;
+  padding: 1.5rem 0;
+
+  h2 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 1.7rem;
+  }
+
+  span {
+    color: #9ca3af;
+    font-size: 0.95rem;
+  }
+}
+
+/* FORM */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+/* FIELD */
+.field label {
+  color: #e5e7eb;
+  margin-bottom: 6px;
+  display: block;
+  font-size: 0.9rem;
+}
+
+/* INPUTS */
+:host ::ng-deep .p-inputtext,
+:host ::ng-deep .p-password input {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+
+  padding: 0.75rem;
+  width: 100%;
+}
+
+/* Placeholder */
+:host ::ng-deep .p-inputtext::placeholder,
+:host ::ng-deep .p-password input::placeholder {
+  color: white;
+}
+
+/* Focus */
+:host ::ng-deep .p-inputtext:focus,
+:host ::ng-deep .p-password input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+:host ::ng-deep .p-password {
+  width: 100%;
+  position: relative;
+  display: block;
+}
+
+/* input padding for icon space */
+:host ::ng-deep .p-password input {
+  padding-right: 2.8rem !important;
+}
+
+/* eye icon */
+:host ::ng-deep .p-password .p-password-toggle-mask {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff !important;
+  z-index: 5;
+}
+
+/* fallback icon styling */
+:host ::ng-deep .p-password .p-icon {
+  position: absolute;
+  right: 12px;
+  color: #ffffff !important;
+}
+
+/* 🧹 FIX: remove unwanted internal overlay / floating text */
+:host ::ng-deep .p-password-panel {
+  display: none !important;
+}
+
+
+.field small {
+  color: #ffffff;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: block;
+}
+
+
+.login-btn {
+  width: 100%;
+  padding: 0.85rem;
+
+  border-radius: 10px;
+  font-weight: 600;
+
+  background: #e5e7eb;
+  color: #111827;
+
+  border: none;
+
+  transition: all 0.2s ease;
+}
+
+.login-btn:hover {
+  background: #858484;
+  transform: translateY(-2px);
+}
+
+.login-btn:disabled {
+  background: #6b7280;
+  color: #d1d5db;
+  cursor: not-allowed;
+}

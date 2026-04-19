@@ -1,0 +1,58 @@
+<div class="page-wrapper">
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <h1>Welcome to Crescent User Management System</h1>
+    <p>Please login to continue</p>
+  </div>
+
+  <!-- PrimeNG Card -->
+  <p-card styleClass="login-card">
+
+    <!-- Header -->
+    <ng-template pTemplate="header">
+      <div class="card-header">
+        <h2>Login</h2>
+        <span>Access your account</span>
+      </div>
+    </ng-template>
+
+    <!-- Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+
+      <!-- Email -->
+      <div class="field">
+        <label>Email</label>
+
+        <span class="p-input-icon-left w-full">
+          <i class="pi pi-envelope"></i>
+          <input pInputText formControlName="email" placeholder="Enter your email" class="w-full" />
+        </span>
+
+        <!-- Validation -->
+        <small *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          Please enter a valid email
+        </small>
+      </div>
+
+      <!-- Password -->
+      <div class="field">
+        <label>Password</label>
+
+        <p-password formControlName="password" [toggleMask]="true" placeholder="Enter your password" [feedback]="false"
+          styleClass="w-full custom-password" inputStyleClass="w-full"></p-password>
+
+        <small *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          Password must be at least 6 characters
+        </small>
+      </div>
+
+      <!-- Button -->
+      <button pButton type="submit" label="Login" icon="pi pi-sign-in" class="login-btn"
+        [disabled]="loginForm.invalid"></button>
+
+    </form>
+
+  </p-card>
+
+</div>

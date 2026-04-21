@@ -1,0 +1,49 @@
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <!-- Logo / Title -->
+    <div class="sidebar-header">
+      <i class="pi pi-users"></i>
+      <span>Crescent User Management System</span>
+    </div>
+
+    <!-- Menu -->
+    <ul>
+
+      <li>
+        <a
+          routerLink="/app/home"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+
+          <i class="pi pi-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/app/users" routerLinkActive="active">
+          <i class="pi pi-user"></i>
+          <span>Users</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/app/settings" routerLinkActive="active">
+          <i class="pi pi-cog"></i>
+          <span>Settings</span>
+        </a>
+      </li>
+
+    </ul>
+
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

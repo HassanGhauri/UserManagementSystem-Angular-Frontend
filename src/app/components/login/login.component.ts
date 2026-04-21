@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -17,7 +18,10 @@ import { PRIME_ANGULAR_MODULES } from '../../primeng.imports';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+  private fb: FormBuilder,
+  private router: Router
+) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -27,8 +31,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-    }
+  if (this.loginForm.valid) {
+    console.log(this.loginForm.value);
+
+    this.router.navigate(['/app/home']);
   }
+}
 }

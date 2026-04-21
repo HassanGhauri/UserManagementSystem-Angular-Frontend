@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import {
@@ -8,15 +8,11 @@ import {
   Validators,
 } from '@angular/forms';
 
-import { isPlatformBrowser } from '@angular/common';
-import { PLATFORM_ID } from '@angular/core';
-
 import { PRIME_ANGULAR_MODULES } from '../../primeng.imports';
 import { AuthService } from '../../utils/auth.service';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
   imports: [CommonModule, ReactiveFormsModule, PRIME_ANGULAR_MODULES],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
@@ -29,8 +25,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService,
-    @Inject(PLATFORM_ID) private platformId: object
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -51,12 +46,7 @@ export class LoginComponent implements OnInit {
 
           if (response.success) {
             console.log(response);
-
-            // ✅ Safe localStorage usage
-            if (isPlatformBrowser(this.platformId)) {
-              localStorage.setItem('token', response.token);
-            }
-
+            localStorage.setItem('token', response.token);
             this.router.navigate(['/app/home']);
           } else {
             this.errorMessage = response.message;

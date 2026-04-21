@@ -9,7 +9,7 @@ import {
 } from '@angular/forms';
 
 import { PRIME_ANGULAR_MODULES } from '../../primeng.imports';
-import { UserService } from '../../utils/user.service';
+import { AuthService } from '../../utils/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private userService: UserService
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -40,13 +40,13 @@ export class LoginComponent implements OnInit {
       this.loading = true;
       this.errorMessage = '';
 
-      this.userService.login('login',this.loginForm.value).subscribe({
+      this.authService.login('login', this.loginForm.value).subscribe({
         next: (response) => {
           this.loading = false;
 
           if (response.success) {
             console.log(response);
-
+            localStorage.setItem('token', response.token);
             this.router.navigate(['/app/home']);
           } else {
             this.errorMessage = response.message;

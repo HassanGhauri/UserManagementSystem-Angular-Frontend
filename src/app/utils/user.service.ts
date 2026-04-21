@@ -14,12 +14,12 @@ interface User {
   profession: string;
   role: string;
 }
-export interface LoginResponse {
-  success: boolean;
-  message: string;
-  status: number;
-  user?: User;
-}
+// export interface LoginResponse {
+//   success: boolean;
+//   message: string;
+//   status: number;
+//   user?: User;
+// }
 
 @Injectable({
   providedIn: 'root',
@@ -44,11 +44,7 @@ export class UserService {
   createUser(url: string, user: User): Observable<any> {
     return this.http.post(`${this.baseUrl}/${url}`, user);
   }
-  // LOGIN USER
-  login(url: string, user: User): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.baseUrl}/${url}`, user);
-  }
-
+  
   updateUser(url: string, id: number, user: User): Observable<any> {
     return this.http.put(`${this.baseUrl}/${url}/${id}`, user);
   }

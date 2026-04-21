@@ -1,68 +1,101 @@
-/* home.component.scss */
-
-:host {
-  display: block;
-  min-height: 100vh;
-}
-
-/* Page Background */
 .home-page {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 2rem;
-
-  
+  color: #fff;
 }
 
-/* Center Box */
+/* HERO */
 .hero-box {
-  width: 100%;
-  max-width: 700px;
   text-align: center;
-
-  padding: 3rem 2.5rem;
-  border-radius: 24px;
-
-  background: rgba(17, 24, 39, 0.82);
-  backdrop-filter: blur(16px);
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  margin-bottom: 2rem;
 }
 
 .hero-box h1 {
-  color: #ffffff;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
+  font-size: 2rem;
 }
 
 .hero-box p {
   color: #9ca3af;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 2rem;
 }
 
-/* Button */
 .hero-box button {
-  background: #f3f4f6;
-  color: #111827;
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
   border: none;
-  padding: 0.9rem 2rem;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 600;
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  color: #fff;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.25s ease;
 }
 
-.hero-box button:hover {
-  transform: translateY(-2px);
-  background: #ffffff;
+/* SECTION TITLE */
+.section-title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+/* CARD CONTAINER */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* USER CARD */
+.user-card {
+  width: 220px;
+  padding: 1rem;
+  border-radius: 15px;
+
+  background: rgba(17, 24, 39, 0.92);
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+
+  transition: 0.3s;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+}
+
+/* AVATAR */
+.avatar {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 0.5rem auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  font-weight: bold;
+  color: #fff;
+  background: #4f46e5;
+}
+
+/* ROLE COLORS */
+.admin {
+  border-top: 3px solid #ef4444;
+}
+
+.manager {
+  border-top: 3px solid #f59e0b;
+}
+
+.user {
+  border-top: 3px solid #10b981;
+}
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 3px 8px;
+  font-size: 0.7rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
 }

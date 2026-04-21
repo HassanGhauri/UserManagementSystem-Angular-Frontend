@@ -162,7 +162,20 @@
     color: #9ca3af;
     padding: 2rem !important;
 }
+.avatar {
+  width: 40px;
+  height: 40px;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  border-radius: 50%;
+
+  font-size: 1.0rem;
+  font-weight: bold;
+}
 /* ============================= */
 /* RESPONSIVE */
 /* ============================= */

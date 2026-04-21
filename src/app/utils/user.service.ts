@@ -3,7 +3,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { environment } from '../../environments/environment';
 interface User {
   id: number;
   firstname: string;
@@ -26,7 +26,7 @@ interface User {
 })
 export class UserService {
   // Change this to your Spring Boot backend URL
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = environment.apiUrl; // ✅ HERE
 
   constructor(private http: HttpClient) {}
 

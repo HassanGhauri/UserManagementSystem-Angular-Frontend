@@ -4,7 +4,9 @@
   <div class="header-bar">
     <h2 class="page-title">Users</h2>
 
+    <!-- 🔐 ONLY ADMIN CAN SEE -->
     <button
+      *ngIf="isAdmin"
       pButton
       type="button"
       label="Add User"
@@ -28,10 +30,10 @@
       styleClass="p-datatable-sm p-datatable-striped"
     >
 
-      <!-- Header -->
+      <!-- HEADER -->
       <ng-template pTemplate="header">
         <tr>
-          <th>ID</th>
+          <th></th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
@@ -42,10 +44,14 @@
         </tr>
       </ng-template>
 
-      <!-- Body -->
+      <!-- BODY -->
       <ng-template pTemplate="body" let-user>
         <tr>
-          <td>{{ user.id }}</td>
+
+          <td class="avatar">
+            {{ user.firstname.charAt(0) }}{{ user.lastname.charAt(0) }}
+          </td>
+
           <td>{{ user.firstname }}</td>
           <td>{{ user.lastname }}</td>
           <td>{{ user.email }}</td>
@@ -59,10 +65,11 @@
             ></p-tag>
           </td>
 
-          <!-- Actions -->
+          <!-- 🔐 ACTIONS ONLY ADMIN -->
           <td class="action-buttons">
 
             <button
+              *ngIf="isAdmin"
               pButton
               type="button"
               icon="pi pi-pencil"
@@ -71,6 +78,7 @@
             ></button>
 
             <button
+              *ngIf="isAdmin"
               pButton
               type="button"
               icon="pi pi-trash"
@@ -79,10 +87,11 @@
             ></button>
 
           </td>
+
         </tr>
       </ng-template>
 
-      <!-- Empty -->
+      <!-- EMPTY -->
       <ng-template pTemplate="emptymessage">
         <tr>
           <td colspan="8" class="text-center">
@@ -94,4 +103,5 @@
     </p-table>
 
   </p-card>
+
 </div>

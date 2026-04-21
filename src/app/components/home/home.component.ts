@@ -1,14 +1,41 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { LayoutComponent } from '../layout/layout.component';
-import { PRIME_ANGULAR_MODULES } from '../../primeng.imports';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../utils/user.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports:[PRIME_ANGULAR_MODULES],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
-  
+export class HomeComponent implements OnInit {
+
+  users: any[] = [];
+
+  admins: any[] = [];
+  managers: any[] = [];
+  usersList: any[] = [];
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    this.userService.getAllUsers('users').subscribe({
+      next: (data: any) => {
+        this.users = data;
+
+        this.admins = this.users.filter(u => u.role === 'ADMIN');
+        this.managers = this.users.filter(u => u.role === 'MANAGER');
+        this.usersList = this.users.filter(u => u.role === 'USER');
+
+        console.log('All Users:', this.users);
+      },
+      error: (err) => {
+        console.error('Error fetching users', err);
+      }
+    });
+  }
 }

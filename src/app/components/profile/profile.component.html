@@ -1,0 +1,44 @@
+<!-- Page Title (TOP SECTION) -->
+<div class="profile-header">
+  <h1>My Profile</h1>
+  <p>View and manage your account details</p>
+</div>
+
+<div class="profile-wrapper">
+
+  <!-- Loader -->
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Profile Card -->
+  <div *ngIf="!loading && user" class="profile-card">
+
+    <div class="avatar">
+      {{ user.firstname.charAt(0) }}{{ user.lastname.charAt(0) }}
+    </div>
+
+    <h2>{{ user.firstname }} {{ user.lastname }}</h2>
+    <p class="role">{{ user.role }}</p>
+
+    <div class="info-grid">
+      <div>
+        <label>Email</label>
+        <span>{{ user.email }}</span>
+      </div>
+
+      <div>
+        <label>Age</label>
+        <span>{{ user.age }}</span>
+      </div>
+
+      <div>
+        <label>Profession</label>
+        <span>{{ user.profession }}</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

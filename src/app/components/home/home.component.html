@@ -1,12 +1,41 @@
-<!-- home.component.html -->
 <div class="home-page">
-  <div class="hero-box">
-    <h1>Welcome Home</h1>
-    <p>
-      A modern homepage with a dark premium background inspired by your login
-      page theme.
-    </p>
 
-    <button>Get Started</button>
+  <!-- Hero -->
+  <div class="hero-box">
+    <h1>Welcome To The Crescent User Management System</h1>
   </div>
+
+  <!-- ADMIN SECTION -->
+  <h2 class="section-title">Admins</h2>
+  <div class="card-container">
+    <div class="user-card admin" *ngFor="let user of admins">
+      <div class="avatar">{{ user.firstname.charAt(0) }}</div>
+      <h3>{{ user.firstname }} {{ user.lastname }}</h3>
+      <p>{{ user.email }}</p>
+      <span class="badge">ADMIN</span>
+    </div>
+  </div>
+
+  <!-- MANAGER SECTION -->
+  <h2 class="section-title">Managers</h2>
+  <div class="card-container">
+    <div class="user-card manager" *ngFor="let user of managers">
+      <div class="avatar">{{ user.firstname.charAt(0) }}</div>
+      <h3>{{ user.firstname }} {{ user.lastname }}</h3>
+      <p>{{ user.email }}</p>
+      <span class="badge">MANAGER</span>
+    </div>
+  </div>
+
+  <!-- USER SECTION -->
+  <h2 class="section-title">Users</h2>
+  <div class="card-container">
+    <div class="user-card user" *ngFor="let user of usersList">
+      <div class="avatar">{{ user.firstname.charAt(0) }}</div>
+      <h3>{{ user.firstname }} {{ user.lastname }}</h3>
+      <p>{{ user.email }}</p>
+      <span class="badge">USER</span>
+    </div>
+  </div>
+
 </div>

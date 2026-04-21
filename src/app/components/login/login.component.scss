@@ -75,7 +75,7 @@
   color: #e5e7eb;
   margin-bottom: 6px;
   display: block;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 /* INPUTS */
@@ -137,15 +137,6 @@
   display: none !important;
 }
 
-
-.field small {
-  color: #ffffff;
-  font-size: 0.85rem;
-  margin-top: 5px;
-  display: block;
-}
-
-
 .login-btn {
   width: 100%;
   padding: 0.85rem;
@@ -170,4 +161,39 @@
   background: #6b7280;
   color: #d1d5db;
   cursor: not-allowed;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 99999;
+}
+:host ::ng-deep .login-btn.p-button {
+  width: 100%;
+  background: #e9e7e7 !important;
+  border: none !important;
+  color: #111827 !important;
+  border-radius: 10px;
+  padding: 0.85rem;
+  display: flex;
+  justify-content: center;
+}
+
+:host ::ng-deep .login-btn .p-button-label {
+  color: #111827 !important;
+  font-weight: 600;
+}
+
+:host ::ng-deep .login-btn .p-button-icon {
+  color: #111827 !important;
 }

@@ -9,6 +9,8 @@ import {
 } from '@angular/forms';
 
 import { PRIME_ANGULAR_MODULES } from '../../primeng.imports';
+import { UserService } from '../../utils/user.service';
+
 @Component({
   selector: 'app-login',
   imports: [CommonModule, ReactiveFormsModule, PRIME_ANGULAR_MODULES],
@@ -17,11 +19,14 @@ import { PRIME_ANGULAR_MODULES } from '../../primeng.imports';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  loading = false;
+  errorMessage = '';
 
   constructor(
-  private fb: FormBuilder,
-  private router: Router
-) {}
+    private fb: FormBuilder,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -31,10 +36,35 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-  if (this.loginForm.valid) {
-    console.log(this.loginForm.value);
+    if (this.loginForm.valid) {
+      this.loading = true;
+      this.errorMessage = '';
 
-    this.router.navigate(['/app/home']);
+      this.userService.login('login',this.loginForm.value).subscribe({
+        next: (response) => {
+          this.loading = false;
+
+          if (response.success) {
+            console.log(response);
+
+            this.router.navigate(['/app/home']);
+          } else {
+            this.errorMessage = response.message;
+          }
+        },
+
+        error: (error) => {
+          this.loading = false;
+
+          if (error.error?.message) {
+            this.errorMessage = error.error.message;
+          } else {
+            this.errorMessage = 'Login failed';
+          }
+        },
+      });
+    } else {
+      this.loginForm.markAllAsTouched();
+    }
   }
-}
 }

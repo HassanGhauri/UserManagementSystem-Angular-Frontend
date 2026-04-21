@@ -1,0 +1,77 @@
+<div class="dialog-container">
+
+    <!-- HEADER -->
+    <div class="dialog-header">
+        <i class="pi pi-user dialog-icon"></i>
+
+        <div>
+            <h2>{{ user?.id ? 'Edit User' : 'Add User' }}</h2>
+            <span>Manage user information</span>
+        </div>
+    </div>
+
+    <!-- FORM GRID -->
+    <div class="form-grid">
+
+        <!-- First Name -->
+        <span class="p-input-icon-left input-field">
+            <i class="pi pi-user"></i>
+            <input pInputText [(ngModel)]="user.firstname" placeholder="First Name" />
+        </span>
+
+        <!-- Last Name -->
+        <span class="p-input-icon-left input-field">
+            <i class="pi pi-user-edit"></i>
+            <input pInputText [(ngModel)]="user.lastname" placeholder="Last Name" />
+        </span>
+
+        <!-- Email -->
+        <span class="p-input-icon-left input-field full-width">
+            <i class="pi pi-envelope"></i>
+            <input pInputText [(ngModel)]="user.email" placeholder="Email Address" />
+        </span>
+
+        <!-- Password -->
+        <span class="p-input-icon-left input-field full-width">
+            <i class="pi pi-lock"></i>
+            <input pInputText type="password" [(ngModel)]="user.password" placeholder="Password" />
+        </span>
+
+        <!-- Age -->
+        <span class="p-input-icon-left input-field">
+            <i class="pi pi-calendar"></i>
+            <input pInputText type="number" [(ngModel)]="user.age" placeholder="Age" />
+        </span>
+
+        <!-- Profession -->
+        <span class="p-input-icon-left input-field">
+            <i class="pi pi-briefcase"></i>
+            <input pInputText [(ngModel)]="user.profession" placeholder="Profession" />
+        </span>
+
+
+        <!-- Role -->
+        <span class="p-input-icon-left input-field">
+            <i class="pi pi-shield"></i>
+
+            <p-select [options]="roles" [(ngModel)]="user.role" optionLabel="label" optionValue="value"
+                placeholder="Role" appendTo="body" styleClass="role-select">
+            </p-select>
+        </span>
+
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="dialog-footer">
+
+        <p-button type="button" icon="pi pi-times" label="Cancel" class="cancel-btn" severity="danger"
+            (click)="cancel()">
+        </p-button>
+
+        <p-button type="button" icon="pi pi-check" label="Save User" class="save-btn" severity="info" (click)="save()">
+        </p-button>
+
+    </div>
+
+</div>

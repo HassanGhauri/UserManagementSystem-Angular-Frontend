@@ -1,0 +1,179 @@
+/* ============================= */
+/* PAGE LAYOUT */
+/* ============================= */
+
+.page-container {
+    padding: 1.5rem;
+    color: #ffffff;
+}
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.spacer {
+    height: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* ============================= */
+/* CARD THEME */
+/* ============================= */
+
+:host ::ng-deep .p-card {
+    background: rgba(17, 24, 39, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    backdrop-filter: blur(18px);
+    color: #ffffff;
+    box-shadow: none;
+}
+
+:host ::ng-deep .p-card-content {
+    padding: 0 !important;
+}
+
+/* ============================= */
+/* TABLE THEME */
+/* ============================= */
+
+:host ::ng-deep .p-datatable {
+    background: transparent;
+    color: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* Header */
+:host ::ng-deep .p-datatable-thead > tr > th {
+    background: rgba(255, 255, 255, 0.04);
+    color: #d1d5db;
+    border: none;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Rows */
+:host ::ng-deep .p-datatable-tbody > tr {
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td {
+    color: #ffffff;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 0.95rem 1rem;
+}
+
+/* Hover */
+:host ::ng-deep .p-datatable-tbody > tr:hover {
+    background: rgba(255,255,255,0.03);
+}
+
+/* Striped */
+:host ::ng-deep .p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
+    background: rgba(255,255,255,0.015);
+}
+
+/* ============================= */
+/* PAGINATOR */
+/* ============================= */
+
+:host ::ng-deep .p-paginator {
+    background: transparent;
+    border: none;
+    padding: 1rem;
+    color: #ffffff;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-page,
+:host ::ng-deep .p-paginator .p-paginator-next,
+:host ::ng-deep .p-paginator .p-paginator-prev,
+:host ::ng-deep .p-paginator .p-paginator-first,
+:host ::ng-deep .p-paginator .p-paginator-last {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    border-radius: 10px;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-page.p-highlight {
+    background: rgba(96, 165, 250, 0.2);
+    color: #ffffff;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-page:hover,
+:host ::ng-deep .p-paginator button:hover {
+    background: rgba(255,255,255,0.05);
+    color: #ffffff;
+}
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
+
+/* Add user */
+:host ::ng-deep .p-button-success {
+    background: rgba(96, 165, 250, 0.18) !important;
+    border: 1px solid rgba(96, 165, 250, 0.3) !important;
+    color: #ffffff !important;
+    border-radius: 12px;
+}
+
+:host ::ng-deep .p-button-success:hover {
+    background: rgba(96, 165, 250, 0.28) !important;
+}
+
+/* Action icon buttons */
+:host ::ng-deep .p-button.p-button-text {
+    color: #d1d5db !important;
+}
+
+:host ::ng-deep .p-button.p-button-warning:hover {
+    background: rgba(245, 158, 11, 0.15) !important;
+}
+
+:host ::ng-deep .p-button.p-button-danger:hover {
+    background: rgba(239, 68, 68, 0.15) !important;
+}
+
+/* ============================= */
+/* EMPTY MESSAGE */
+/* ============================= */
+
+.text-center {
+    text-align: center;
+    color: #9ca3af;
+    padding: 2rem !important;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+    .header-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+}

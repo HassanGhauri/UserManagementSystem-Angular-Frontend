@@ -4,3 +4,32 @@
   margin: 0;
   padding: 0;
 }
+
+.p-dialog.custom-dialog .p-dialog-content {
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+.p-dialog.custom-dialog {
+  overflow: visible !important;
+}
+
+.p-dialog.custom-dialog {
+  border-radius: 20px !important;
+  background: transparent !important;
+  overflow: hidden !important;
+}
+
+.p-dialog.custom-dialog .p-dialog-content {
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.p-dialog-mask {
+  backdrop-filter: blur(6px);
+}
+
+/* REMOVE DEFAULT HEADER SPACE */
+.p-dialog .p-dialog-header {
+  display: none !important;
+}

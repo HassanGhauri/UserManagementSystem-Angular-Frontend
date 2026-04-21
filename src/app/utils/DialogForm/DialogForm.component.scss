@@ -1,0 +1,235 @@
+/* MAIN DIALOG WRAPPER */
+.dialog-container {
+    padding: 2rem;
+    width: 100%;
+    max-width: 550px;
+
+    background: rgba(17, 24, 39, 0.92);
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+
+    color: #fff;
+}
+
+/* PRIME DIALOG FIX (IMPORTANT) */
+:host ::ng-deep .custom-dialog .p-dialog {
+    border-radius: 20px;
+    overflow: hidden;
+    background: transparent;
+}
+
+:host ::ng-deep .custom-dialog .p-dialog-content {
+    padding: 0 !important;
+    background: transparent;
+}
+
+:host ::ng-deep .p-dialog-mask {
+    backdrop-filter: blur(6px);
+}
+
+/* HEADER */
+.dialog-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.dialog-icon {
+    font-size: 1.5rem;
+    color: #60a5fa;
+}
+
+.dialog-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.dialog-header span {
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+/* FORM GRID */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.2rem;
+}
+
+/* FULL WIDTH */
+.full-width {
+    grid-column: span 2;
+}
+
+/* INPUT FIELD WRAPPER */
+.input-field {
+    position: relative;
+    width: 100%;
+}
+
+/* INPUT STYLING */
+.input-field input {
+    width: 100%;
+    padding: 0.8rem 0.8rem 0.8rem 2.6rem;
+
+    font-size: 1rem;
+    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+/* FOCUS EFFECT */
+.input-field input:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+/* ICON POSITION FIX */
+:host ::ng-deep .p-input-icon-left>i {
+    left: 0.9rem;
+    color: #9ca3af;
+}
+
+/* FOOTER */
+.dialog-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 1rem;
+
+    position: sticky;
+    bottom: 0;
+
+    background: rgba(17, 24, 39, 0.98);
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+/* CANCEL BUTTON */
+:host ::ng-deep .cancel-btn {
+    background: transparent !important;
+    border: none !important;
+    color: #9ca3af !important;
+    border-radius: 10px;
+}
+
+/* SAVE BUTTON */
+:host ::ng-deep .save-btn {
+    background: transparent !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+}
+
+/* ============================= */
+/* PRIME NG SELECT (ROLE) */
+/* PERFECT INPUT MATCH */
+/* ============================= */
+
+:host ::ng-deep .role-select {
+    width: 100%;
+}
+
+/* Main select container */
+:host ::ng-deep .role-select.p-select,
+:host ::ng-deep .role-select .p-select {
+    width: 100%;
+    min-height: 46px;
+
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    border-radius: 12px !important;
+
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+/* Internal label area */
+:host ::ng-deep .role-select .p-select-label {
+    background: transparent !important;
+    color: #ffffff !important;
+    padding-left: 2.4rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Placeholder */
+:host ::ng-deep .role-select .p-placeholder,
+:host ::ng-deep .role-select .p-select-label.p-placeholder {
+    color: #9ca3af !important;
+}
+
+/* Arrow button area */
+:host ::ng-deep .role-select .p-select-dropdown {
+    background: transparent !important;
+    color: #9ca3af !important;
+    border: none !important;
+}
+
+/* Hover */
+:host ::ng-deep .role-select.p-select:hover,
+:host ::ng-deep .role-select .p-select:hover {
+    border-color: rgba(96, 165, 250, 0.6) !important;
+}
+
+/* Focus */
+:host ::ng-deep .role-select.p-focus,
+:host ::ng-deep .role-select .p-select.p-focus,
+:host ::ng-deep .role-select .p-select:focus-within {
+    border-color: #60a5fa !important;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.22) !important;
+}
+
+/* Dropdown panel */
+:host ::ng-deep .p-select-overlay {
+    background: rgba(17, 24, 39, 0.98) !important;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    backdrop-filter: blur(16px);
+    z-index: 9999 !important;
+    margin-top: 6px;
+}
+
+/* Items */
+:host ::ng-deep .p-select-option {
+    background: transparent !important;
+    color: #e5e7eb;
+    padding: 0.75rem 1rem;
+}
+
+/* Hover item */
+:host ::ng-deep .p-select-option:hover {
+    background: rgba(96, 165, 250, 0.15) !important;
+    color: #ffffff;
+}
+
+/* Selected */
+:host ::ng-deep .p-select-option.p-select-option-selected {
+    background: rgba(96, 165, 250, 0.25) !important;
+    color: #ffffff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
+}

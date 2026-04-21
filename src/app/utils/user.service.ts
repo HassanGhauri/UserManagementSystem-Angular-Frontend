@@ -4,11 +4,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface User {
-  id?: number;
-  name?: string;
-  email?: string;
-  password?: string;
+interface User {
+  id: number;
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  age: number;
+  profession: string;
+  role: string;
 }
 export interface LoginResponse {
   success: boolean;
@@ -27,12 +31,12 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   // GET /users
-  getAllUsers(url: string,): Observable<User[]> {
+  getAllUsers(url: string): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}/${url}`);
   }
 
   // GET /user/{id}
-  getUserById(url: string,id: number): Observable<User> {
+  getUserById(url: string, id: number): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}/${url}/${id}`);
   }
 
@@ -41,7 +45,15 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/${url}`, user);
   }
   // LOGIN USER
-  login(url: string,user: User): Observable<LoginResponse> {
+  login(url: string, user: User): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.baseUrl}/${url}`, user);
+  }
+
+  updateUser(url: string, id: number, user: User): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${url}/${id}`, user);
+  }
+
+  deleteUser(url: string, id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${url}/${id}`);
   }
 }

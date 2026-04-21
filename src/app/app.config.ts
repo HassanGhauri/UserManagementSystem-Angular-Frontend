@@ -7,14 +7,14 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
-
+import { DialogService } from 'primeng/dynamicdialog';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { providePrimeNG } from 'primeng/config';
 import Lara from '@primeng/themes/lara';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(withFetch()),
-
+    DialogService,
     provideAnimations(),
     providePrimeNG({
       theme: {
